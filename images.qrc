@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../../Загрузки/free-icon-network-switch-5517192.png</file>
+        <file>../../Загрузки/free-icon-settings-7213592.png</file>
+        <file>../../Загрузки/free-icon-internet-2985788.png</file>
+    </qresource>
+</RCC>
