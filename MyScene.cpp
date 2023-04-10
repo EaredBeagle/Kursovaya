@@ -12,12 +12,18 @@ MyScene::MyScene(QObject *parent)
     erase = new QGraphicsEllipseItem(0, 0, erase_size, erase_size);
     this->addItem(erase);
     erase->hide();
+    this->color = QColor("black");
 }
 
 void MyScene::setLineActiveFlag(bool flag)
 {
     is_line_active = flag;
     std::cout << "I'm here!" << std::endl;
+}
+
+void MyScene::setColor(QColor color)
+{
+    this->color = color;
 }
 
 void MyScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
@@ -40,7 +46,7 @@ void MyScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
         if (line != nullptr) delete line;
         line = new QGraphicsLineItem(QLineF(first_line_coord, event->scenePos()));
         line->setFlag(QGraphicsItem::ItemIsMovable);
-        QPen pen(Qt::green);
+        QPen pen(this->color);
         pen.setWidth(5);// Толщина линии
         line->setPen(pen);
         this->addItem(line);
@@ -61,13 +67,14 @@ void MyScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         if (line != nullptr) delete line;
         line = new QGraphicsLineItem(QLineF(first_line_coord, event->scenePos()));
         line->setFlag(QGraphicsItem::ItemIsMovable);
-        QPen pen(Qt::green);
+        QPen pen(this->color);
         pen.setWidth(5);// Толщина линии
         line->setPen(pen);
         this->addItem(line);
         line = nullptr;
         first_line_coord = {-1, -1};
     }
+    is_line_active = false;
     is_mouse_pressed = false;
     is_right_mouse_button_pressed = false;
     QGraphicsScene::mouseReleaseEvent(event);

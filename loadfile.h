@@ -8,6 +8,7 @@ class QGraphicsScene;
 class moveTable;
 class MoveItem;
 class moveCash;
+class moveprinter;
 class line;
 class QGraphicsView;
 class QVBoxLayout;

@@ -14,13 +14,13 @@ MoveItem1::~MoveItem1()
 
 QRectF MoveItem1::boundingRect() const
 {
-    return QRectF (-30,-30,170,100);
+    return QRectF (-30,-30,100,100);
 }
 
 void MoveItem1::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    QImage image(":/Загрузки/free-icon-settings-7213592.png");
-    QRect recr(-30,-30,170,100);
+    QImage image("://img/computer.svg");
+    QRect recr(-30,-30,100,100);
     painter->drawImage(recr,image);
 
 }

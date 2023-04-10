@@ -14,7 +14,9 @@ SOURCES += \
     main.cpp \
     movecomputer.cpp \
     moveinternet.cpp \
+    moveprinter.cpp \
     moveswitch.cpp \
+    movexerox.cpp \
     savefile.cpp \
     widget.cpp
 
@@ -23,7 +25,9 @@ HEADERS += \
     loadfile.h \
     movecomputer.h \
     moveinternet.h \
+    moveprinter.h \
     moveswitch.h \
+    movexerox.h \
     savefile.h \
     widget.h
 

@@ -39,17 +39,38 @@ void SaveFile::sl_saveSceneToFile(QGraphicsScene *scene) {
       jsonFigure["yCoordinates"] = moveitem2->y();
       jsonFigure["type"] = 2;
     } else if (dynamic_cast<MoveItem3 *>(item) != nullptr) {
-      MoveItem3 *moveitem3 = (MoveItem3 *)item;
-      jsonFigure["xCoordinates"] = moveitem3->x();
-      jsonFigure["yCoordinates"] = moveitem3->y();
-      jsonFigure["type"] = 3;
-    } else {
-      QGraphicsLineItem *line = (QGraphicsLineItem*)item;
-      jsonFigure["startXCoordinates"] = line->line().x1();
-      jsonFigure["startYCoordinates"] = line->line().y1();
-      jsonFigure["endXCoordinates"] = line->line().x2();
-      jsonFigure["endYCoordinates"] = line->line().y2();
-      jsonFigure["type"] = 0;
+        MoveItem3 *moveitem3 = (MoveItem3 *)item;
+        jsonFigure["xCoordinates"] = moveitem3->x();
+        jsonFigure["yCoordinates"] = moveitem3->y();
+        jsonFigure["type"] = 3;
+    }
+    else if (dynamic_cast<MoveItem4 *>(item) != nullptr) {
+        MoveItem4 *moveitem4 = (MoveItem4 *)item;
+        jsonFigure["xCoordinates"] = moveitem4->x();
+        jsonFigure["yCoordinates"] = moveitem4->y();
+        jsonFigure["type"] = 4;
+    }
+    else if (dynamic_cast<MoveItem5 *>(item) != nullptr) {
+        MoveItem5 *moveitem5 = (MoveItem5 *)item;
+        jsonFigure["xCoordinates"] = moveitem5->x();
+        jsonFigure["yCoordinates"] = moveitem5->y();
+        jsonFigure["type"] = 5;
+    }
+    else if (dynamic_cast<QGraphicsLineItem *>(item) != nullptr) {
+        QGraphicsLineItem *line = dynamic_cast<QGraphicsLineItem *>(item);
+        jsonFigure["startXCoordinates"] = line->line().x1();
+        jsonFigure["startYCoordinates"] = line->line().y1();
+        jsonFigure["endXCoordinates"] = line->line().x2();
+        jsonFigure["endYCoordinates"] = line->line().y2();
+        jsonFigure["type"] = 0;
+        jsonFigure["color"] = line->pen().color().name();
+    }
+    else if (dynamic_cast<QGraphicsTextItem *>(item) != nullptr) {
+        QGraphicsTextItem *textItem = dynamic_cast<QGraphicsTextItem *>(item);
+        jsonFigure["xCoordinates"] = textItem->x();
+        jsonFigure["yCoordinates"] = textItem->y();
+        jsonFigure["text"] = textItem->toPlainText();
+        jsonFigure["type"] = 6;
     }
     figures.append(jsonFigure);
   }

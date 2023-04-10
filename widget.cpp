@@ -34,7 +34,7 @@ Widget::Widget(QWidget *parent) :
     ui->graphicsView->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
 
     scene->setSceneRect(0,0,1920,1080); // Устанавливаем размер сцены
-    scene->setBackgroundBrush(QColor("#333"));
+    scene->setBackgroundBrush(QColor("#FFFFFF"));
 }
 
 Widget::~Widget()
@@ -69,6 +69,22 @@ void Widget::on_pushButton3_clicked()
                  randomBetween(550,500));
     scene->addItem(item);   // Добавляем элемент на графическую сцену
 
+}
+
+void Widget::on_pushButton_Printer_clicked()
+{
+    MoveItem4 *item = new MoveItem4();        // Создаём графический элемента
+    item->setPos(randomBetween(550, 500),    // Устанавливаем случайную позицию элемента
+                 randomBetween(550,500));
+    scene->addItem(item);   // Добавляем элемент на графическую сцену
+}
+
+void Widget::on_pushButton_Xerox_clicked()
+{
+    MoveItem5 *item = new MoveItem5();        // Создаём графический элемента
+    item->setPos(randomBetween(550, 500),    // Устанавливаем случайную позицию элемента
+                 randomBetween(550,500));
+    scene->addItem(item);   // Добавляем элемент на графическую сцену
 }
 
 void Widget::on_pushButton_clicked()
@@ -119,5 +135,46 @@ void Widget::on_checkBox_stateChanged(int arg1)
 {
     set_remove = arg1;
     dynamic_cast<MyScene*>(scene)->setLineActiveFlag(arg1);
+}
+
+void Widget::on_comboBox_currentIndexChanged(int index)
+{
+    QColor color;
+    switch(index) {
+        case 0:
+        color = QColor("black");
+        break;
+        case 1:
+        color = QColor("red");
+        break;
+        case 2:
+        color = QColor("blue");
+        break;
+        case 3:
+        color = QColor("green");
+        break;
+    }
+    dynamic_cast<MyScene*>(scene)->setColor(color);
+}
+
+
+void Widget::on_pushButton_3_clicked()
+{
+    bool ok;
+    QString text = QInputDialog::getText(this, tr("QInputDialog::getText()"),
+                                     tr("Please enter your text"), QLineEdit::Normal,
+                                     "Replace with your text", &ok);
+    if (!ok || text.isEmpty()) return;
+    QGraphicsTextItem *textItem = this->scene->addText(text);
+    textItem->setFlag(QGraphicsItem::ItemIsMovable);
+    textItem->setDefaultTextColor(QColor("black"));
+    textItem->setPos(randomBetween(550, 500),    // Устанавливаем случайную позицию элемента
+                 randomBetween(550,500));
+}
+
+
+void Widget::on_pushButton_4_clicked()
+{
+    dynamic_cast<MyScene*>(scene)->setLineActiveFlag(true);
 }
 

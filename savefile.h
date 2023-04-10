@@ -2,6 +2,7 @@
 #define SAVEFILE_H
 #include "QtWidgets/qgraphicsitem.h"
 #include <QDialog>
+#include <QPen>
 #include "MyScene.h"
 
 class QGraphicsScene;

@@ -38,11 +38,14 @@ void LoadFile::sl_loadSceneToFile(MyScene *scene) {
         QJsonArray jsonArr = document.array();
         scene->clearScene();
         int start_x, start_y, end_x, end_y;
+        QString color;
         QGraphicsLineItem* figure;
         MoveItem1 *moveitem1;
         MoveItem2 *moveitem2;
         MoveItem3 *moveitem3;
-        QPen pen(Qt::green);
+        MoveItem4 *moveitem4;
+        MoveItem5 *moveitem5;
+        QPen pen;
         pen.setWidth(5);// Толщина линии
 
         for (int i = 0; i < jsonArr.count(); ++i) {
@@ -56,7 +59,9 @@ void LoadFile::sl_loadSceneToFile(MyScene *scene) {
               start_y = jsonObj.take("startYCoordinates").toInt();
               end_x = jsonObj.take("endXCoordinates").toInt();
               end_y = jsonObj.take("endYCoordinates").toInt();
+              color = jsonObj.take("color").toString();
               figure = new QGraphicsLineItem(QLineF(QPointF(start_x, start_y), QPointF(end_x, end_y)));
+              pen.setColor(color);
               figure->setFlag(QGraphicsItem::ItemIsMovable);
               figure->setPen(pen);
               scene->addItem(figure);
@@ -86,6 +91,33 @@ void LoadFile::sl_loadSceneToFile(MyScene *scene) {
               moveitem3->update();
               scene->addItem(moveitem3);   // Добавляем элемент на графическую сцену
               break;
+            case 4:
+              // movePrinter
+              start_x = jsonObj.take("xCoordinates").toInt();
+              start_y = jsonObj.take("yCoordinates").toInt();
+              moveitem4 = new MoveItem4();        // Создаём графический элемент стелажа
+              moveitem4->setPos(start_x, start_y);
+              moveitem4->update();
+              scene->addItem(moveitem4);   // Добавляем элемент на графическую сцену
+              break;
+            case 5:
+              // moveXerox
+              start_x = jsonObj.take("xCoordinates").toInt();
+              start_y = jsonObj.take("yCoordinates").toInt();
+              moveitem5 = new MoveItem5();        // Создаём графический элемент стелажа
+              moveitem5->setPos(start_x, start_y);
+              moveitem5->update();
+              scene->addItem(moveitem5);   // Добавляем элемент на графическую сцену
+              break;
+            case 6:
+              // text
+              start_x = jsonObj.take("xCoordinates").toInt();
+              start_y = jsonObj.take("yCoordinates").toInt();
+              QString text = jsonObj.take("text").toString();
+              QGraphicsTextItem *textItem = scene->addText(text);
+              textItem->setFlag(QGraphicsItem::ItemIsMovable);
+              textItem->setDefaultTextColor(QColor("black"));
+              textItem->setPos(start_x, start_y);
           }
         }
       }

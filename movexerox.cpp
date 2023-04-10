@@ -1,31 +1,31 @@
-#include "moveswitch.h"
+#include "movexerox.h"
 #include <QPainter>
 
-MoveItem2::MoveItem2(QObject *parent) :
+MoveItem5::MoveItem5(QObject *parent) :
     QObject(parent), QGraphicsItem()
 {
 
 }
 
-MoveItem2::~MoveItem2()
+MoveItem5::~MoveItem5()
 {
 
 }
 
-QRectF MoveItem2::boundingRect() const
+QRectF MoveItem5::boundingRect() const
 {
     return QRectF (-30,-30,100,100);
 }
 
-void MoveItem2::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void MoveItem5::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    QImage image("://img/network-server.svg");
+    QImage image("://img/xerox.svg");
     QRect recr(-30,-30,100,100);
     painter->drawImage(recr,image);
 
 }
 
-void MoveItem2::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+void MoveItem5::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
 
     /* Устанавливаем позицию графического элемента
@@ -37,7 +37,7 @@ void MoveItem2::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 
 }
 
-void MoveItem2::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void MoveItem5::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     /* При нажатии мышью на графический элемент
      * заменяем курсор на руку, которая держит этот элемента
@@ -46,7 +46,7 @@ void MoveItem2::mousePressEvent(QGraphicsSceneMouseEvent *event)
     Q_UNUSED(event);
 }
 
-void MoveItem2::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+void MoveItem5::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     /* При отпускании мышью элемента
      * заменяем на обычный курсор стрелку

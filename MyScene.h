@@ -13,6 +13,7 @@ public:
     explicit MyScene(QObject *parent = nullptr);
 
     void setLineActiveFlag(bool);
+    void setColor(QColor color);
 
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
@@ -21,6 +22,7 @@ public:
 
 private:
     bool is_line_active;
+    QColor color;
     QPointF first_line_coord;
     QGraphicsLineItem *line;
     bool is_mouse_pressed;

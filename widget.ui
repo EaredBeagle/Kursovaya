@@ -7,43 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>1084</width>
-    <height>625</height>
+    <height>711</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Widget</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="2" column="1">
-    <widget class="QGraphicsView" name="graphicsView">
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>Блок - схема ЛВС (локальная вычислительная система)  </string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0">
+   <item row="4" column="0">
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QPushButton" name="pushButton3">
        <property name="text">
         <string>Интернет</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton1">
-       <property name="text">
-        <string>Компьютер</string>
        </property>
       </widget>
      </item>
@@ -55,9 +31,30 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="SavePNG">
+      <widget class="QPushButton" name="pushButton1">
        <property name="text">
-        <string>Сохранить png</string>
+        <string>Компьютер</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_Printer">
+       <property name="text">
+        <string>Принтер</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_Xerox">
+       <property name="text">
+        <string>Ксерокс</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="text">
+        <string>Текст</string>
        </property>
       </widget>
      </item>
@@ -65,6 +62,13 @@
       <widget class="QPushButton" name="ClearScene">
        <property name="text">
         <string>Очистить</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="SavePNG">
+       <property name="text">
+        <string>Сохранить png</string>
        </property>
       </widget>
      </item>
@@ -83,9 +87,68 @@
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="checkBox">
+      <widget class="QPushButton" name="pushButton_4">
        <property name="text">
         <string>Линия</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Выбор линии:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBox">
+       <item>
+        <property name="text">
+         <string>стена</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>соединение - 10 мб/с</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>соединение - 50 мб/с</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>соединение - 100 мб/с</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>черный - стена</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>красный - 10 мб/с</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>синий - 50 мб/с</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>зеленый - 100 мб/с</string>
        </property>
       </widget>
      </item>
@@ -110,6 +173,23 @@
       </widget>
      </item>
     </layout>
+   </item>
+   <item row="4" column="2">
+    <widget class="QGraphicsView" name="graphicsView">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Блок - схема ЛВС (локальная вычислительная система)  </string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

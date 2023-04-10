@@ -1,7 +1,9 @@
 <RCC>
     <qresource prefix="/">
-        <file>../../Загрузки/free-icon-network-switch-5517192.png</file>
-        <file>../../Загрузки/free-icon-settings-7213592.png</file>
-        <file>../../Загрузки/free-icon-internet-2985788.png</file>
+        <file>img/WWW-Icon.svg</file>
+        <file>img/network-server.svg</file>
+        <file>img/computer.svg</file>
+        <file>img/PrinterKiller-Printer.svg</file>
+        <file>img/xerox.svg</file>
     </qresource>
 </RCC>
